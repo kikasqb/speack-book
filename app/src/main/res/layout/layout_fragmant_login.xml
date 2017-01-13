@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="match_parent">
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tên Đăng Nhập"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint = "Mật Khẩu" />
+    </android.support.design.widget.TextInputLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Quên mật khẩu?"
+        android:gravity="right"
+        android:layout_margin="10dp"/>
+    <Button
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đăng Nhập"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorAccent"
+       />
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Hoặc Đăng Nhập Bằng"
+    android:layout_margin="10dp"
+    android:gravity="center"/>
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+
+    android:layout_height="wrap_content">
+   <Button
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       android:text="Facebook"
+       android:id="@+id/btnLoginFacebook"
+       android:textColor="@color/colorFacebook"
+       android:background="@drawable/vienfacebook"
+       android:drawableLeft="@drawable/facebookiconsmall"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/btnloginGoogle"
+        android:background="@drawable/viengoogle"
+        android:text="Google"
+        android:textColor="@color/colorGoogle"
+        android:drawableLeft="@drawable/googleplussmall"/>
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>
