@@ -13,8 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.pccuong.appbook.Model.DangNhap_DangKy.LoginBook;
 import com.example.pccuong.appbook.R;
+import com.example.pccuong.appbook.View.HomePage.HomePageActivity;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -34,9 +38,10 @@ import static com.facebook.FacebookSdk.getApplicationContext;
  */
 
 public class FragmantLogin  extends Fragment  implements View.OnClickListener{
-    Button btnLogin,btnLoginGoogle;
+    Button btnLoginFacebook,btnLoginGoogle,btnLogin;
     CallbackManager callbackManager;
-
+    LoginBook loginBook;
+    EditText tenDangNhap,matKhau;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -47,6 +52,8 @@ public class FragmantLogin  extends Fragment  implements View.OnClickListener{
         LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
+                Intent iTrangChu = new Intent(getActivity(), HomePageActivity.class);
+                startActivity(iTrangChu);
         Log.d("kiemtra"," thanh cong");
             }
 
@@ -60,15 +67,40 @@ public class FragmantLogin  extends Fragment  implements View.OnClickListener{
                 Log.d("kiemtra"," Erro");
             }
         });
-        btnLogin = (Button) view.findViewById(R.id.btnLoginFacebook);
+        loginBook = new LoginBook();
+        tenDangNhap = (EditText) view.findViewById(R.id.tendangnhap);
+        matKhau = (EditText) view.findViewById(R.id.matkhau);
+
+        btnLogin = (Button) view.findViewById(R.id.btnLogin);
+
+        btnLoginFacebook = (Button) view.findViewById(R.id.btnLoginFacebook);
         btnLoginGoogle  = (Button) view.findViewById(R.id.btnloginGoogle);
+        btnLoginFacebook.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
         return view;
     }
 
     @Override
     public void onClick(View v) {
-LoginManager.getInstance().logInWithReadPermissions(FragmantLogin.this, Arrays.asList("public_profile"));
+        int id = v.getId();
+        switch (id){
+            case R.id.btnLoginFacebook :
+                LoginManager.getInstance().logInWithReadPermissions(FragmantLogin.this, Arrays.asList("public_profile"));
+                break;
+            case R.id.btnLogin :
+                String dangNhap = tenDangNhap.getText().toString();
+                String matkhau = matKhau.getText().toString();
+                boolean kiemtra = loginBook.kiemTraLogin(getActivity(),dangNhap,matkhau);
+                if(kiemtra){
+                    Intent iTrangChu = new Intent(getActivity(), HomePageActivity.class);
+                    startActivity(iTrangChu);
+                }else  {
+                    Toast.makeText(getActivity(),"Dang Nhap Ko Thanh Cong",Toast.LENGTH_SHORT);
+                }
+                break;
+        }
+
+
     }
 
     @Override

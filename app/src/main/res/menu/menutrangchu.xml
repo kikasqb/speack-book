@@ -13,7 +13,7 @@
         android:id="@+id/banCham"
         android:title="more"
         android:icon="@drawable/ic_more_vert_white_24dp"
-   app:showAsAction="always"
+         app:showAsAction="always"
 
         >
         <menu>
@@ -28,6 +28,7 @@
             <item
                 android:id="@+id/itdangxuat"
                 android:title="Log Out"
+                android:visible="false"
                 />
 
 
