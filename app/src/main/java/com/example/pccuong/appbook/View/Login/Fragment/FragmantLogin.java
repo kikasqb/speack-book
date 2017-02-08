@@ -1,13 +1,9 @@
 package com.example.pccuong.appbook.View.Login.Fragment;
 
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.pccuong.appbook.Model.DangNhap_DangKy.LoginBook;
+import com.example.pccuong.appbook.model.LoginBook;
 import com.example.pccuong.appbook.R;
 import com.example.pccuong.appbook.View.HomePage.HomePageActivity;
 import com.facebook.CallbackManager;
@@ -26,12 +22,7 @@ import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 
-import java.lang.reflect.Array;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-
-import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
  * Created by PCCuong on 12/31/2016.

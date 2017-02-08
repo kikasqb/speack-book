@@ -1,4 +1,4 @@
-package com.example.pccuong.appbook.Model.DangNhap_DangKy;
+package com.example.pccuong.appbook.model;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import com.example.pccuong.appbook.connectInternet.DowloadJSON;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
-import com.facebook.FacebookSdk;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -60,7 +59,7 @@ public class LoginBook {
          HashMap<String,String> hsHam = new HashMap<>();
         hsHam.put("ham","KiemTraDangNhap");
         HashMap<String,String> hsEmail = new HashMap<>();
-       hsEmail.put("email",email);
+         hsEmail.put("email",email);
 
         HashMap<String,String> hsMatKhau = new HashMap<>();
         hsMatKhau.put("encrypted_password",password);

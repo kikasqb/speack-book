@@ -1,4 +1,4 @@
-package com.example.pccuong.appbook.Model.ObjectClass;
+package com.example.pccuong.appbook.model;
 
 import java.util.List;
 

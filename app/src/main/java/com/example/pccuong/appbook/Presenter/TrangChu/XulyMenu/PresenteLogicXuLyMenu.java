@@ -1,21 +1,13 @@
 package com.example.pccuong.appbook.Presenter.TrangChu.XulyMenu;
 
-import android.content.Context;
-import android.os.Bundle;
 import android.util.Log;
 
-import com.example.pccuong.appbook.Model.DangNhap_DangKy.LoginBook;
-import com.example.pccuong.appbook.Model.ObjectClass.Categories;
-import com.example.pccuong.appbook.Model.XuLyHomePage.DataJsonMenu;
-import com.example.pccuong.appbook.View.HomePage.HomePageActivity;
+import com.example.pccuong.appbook.model.LoginBook;
+import com.example.pccuong.appbook.model.Categories;
+import com.example.pccuong.appbook.model.DataJsonMenu;
 import com.example.pccuong.appbook.View.HomePage.ViewXuLyMenu;
 import com.example.pccuong.appbook.connectInternet.DowloadJSON;
 import com.facebook.AccessToken;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,17 +29,23 @@ public class PresenteLogicXuLyMenu implements  IPresenteXulyMenu {
         List<Categories> categoriesList;
         String dataJSON ="";
         List<HashMap<String,String>> attrs = new ArrayList<>();
-        String duongdan = "http://192.168.17.2/Appbook/sanpham.php";
+        String duongdan = "http://192.168.17.2/Appbook/loaisanpham.php";
+
+        HashMap<String,String> hsHam = new HashMap<>();
+        hsHam.put("ham","layListMenu");
+
         HashMap<String,String> hashMap = new HashMap<>();
         hashMap.put("id","9");
+
         attrs.add(hashMap);
+        attrs.add(hsHam);
         DowloadJSON dowloadJSON = new DowloadJSON(duongdan,attrs);
         dowloadJSON.execute();
 
         try {
             dataJSON = dowloadJSON.get();
             DataJsonMenu dataJsonMenu = new DataJsonMenu();
-           categoriesList = dataJsonMenu.paraseJson(dataJSON);
+            categoriesList = dataJsonMenu.paraseJson(dataJSON);
             viewXuLyMenu.HienThiDanhSachMenu(categoriesList);
         } catch (InterruptedException e) {
             e.printStackTrace();

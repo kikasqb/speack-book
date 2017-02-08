@@ -15,8 +15,8 @@ package com.example.pccuong.appbook.View.HomePage;
 
         import com.example.pccuong.appbook.Adapter.ExpendAdapter;
         import com.example.pccuong.appbook.Adapter.ViewBagerHomePage;
-        import com.example.pccuong.appbook.Model.DangNhap_DangKy.LoginBook;
-        import com.example.pccuong.appbook.Model.ObjectClass.Categories;
+        import com.example.pccuong.appbook.model.LoginBook;
+        import com.example.pccuong.appbook.model.Categories;
         import com.example.pccuong.appbook.Presenter.TrangChu.XulyMenu.PresenteLogicXuLyMenu;
         import com.example.pccuong.appbook.R;
         import com.example.pccuong.appbook.View.Login.LoginActivity;
@@ -29,6 +29,7 @@ package com.example.pccuong.appbook.View.HomePage;
         import org.json.JSONException;
         import org.json.JSONObject;
 
+        import java.util.ArrayList;
         import java.util.List;
 
 /**
@@ -46,14 +47,19 @@ public class HomePageActivity extends AppCompatActivity  implements ViewXuLyMenu
     ExpandableListView  expandableListView;
     PresenteLogicXuLyMenu logicXuLyMenu;
     AccessToken accessToken;
-LoginBook loginBook ;
+    LoginBook loginBook ;
     String tennguoidung ="";
+   // List<Categories> categoriesList;
+
+   // List<Categories> mArray = new ArrayList<>();
+
+
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
-
         setContentView(R.layout.home_page_layout);
+     //   categoriesList = new ArrayList<>();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         expandableListView = (ExpandableListView) findViewById(R.id.edMenu);
         setSupportActionBar(toolbar);
@@ -158,6 +164,8 @@ if(accessToken != null){
 
     @Override
     public void HienThiDanhSachMenu(List<Categories> categoriesList) {
+
+       // mArray.addAll(categoriesList);
 
         ExpendAdapter expendAdapter = new ExpendAdapter(this,categoriesList);
         expandableListView.setAdapter(expendAdapter);

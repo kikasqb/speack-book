@@ -5,11 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
 
-import com.example.pccuong.appbook.Model.ObjectClass.Categories;
-import com.example.pccuong.appbook.Model.XuLyHomePage.DataJsonMenu;
+import com.example.pccuong.appbook.model.Categories;
+import com.example.pccuong.appbook.model.DataJsonMenu;
 import com.example.pccuong.appbook.R;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.example.pccuong.appbook.View.HomePage;
 
-import com.example.pccuong.appbook.Model.ObjectClass.Categories;
+import com.example.pccuong.appbook.model.Categories;
 
 import java.util.List;
 

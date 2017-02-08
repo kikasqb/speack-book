@@ -1,10 +1,8 @@
-package com.example.pccuong.appbook.Model.XuLyHomePage;
+package com.example.pccuong.appbook.model;
 
 import android.os.Bundle;
 import android.util.Log;
 
-import com.example.pccuong.appbook.Model.ObjectClass.Categories;
-import com.example.pccuong.appbook.View.HomePage.HomePageActivity;
 import com.example.pccuong.appbook.connectInternet.DowloadJSON;
 import com.facebook.AccessToken;
 import com.facebook.GraphRequest;
@@ -44,16 +42,24 @@ public class DataJsonMenu {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        Log.d("kiemtrapaseJSON", listCategories.toString());
         return  listCategories;
+
     }
     public  List<Categories>   getChildPositionMenu(int id){
         List<Categories> List = new ArrayList<>();
         List<HashMap<String,String>> attrs = new ArrayList<>();
         String dataJSON= "";
-        String duongdan ="http://192.168.17.2/Appbook/sanpham.php";
+        String duongdan ="http://192.168.17.2/Appbook/loaisanpham.php";
+
+        HashMap<String,String>  hsHam = new HashMap<>();
+        hsHam.put("ham","layListMenu");
+
         HashMap<String,String> shashMap = new HashMap<>();
         shashMap.put("id",String.valueOf(id));
+        attrs.add(hsHam);
         attrs.add(shashMap);
+
         DowloadJSON dowloadJSON = new DowloadJSON(duongdan,attrs);
         dowloadJSON.execute();
         try {
@@ -66,7 +72,9 @@ public class DataJsonMenu {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+        Log.d("kiemtrapaseJSON", List.toString());
         return List;
+
 
 
     }
